@@ -1,0 +1,76 @@
+<svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#9333ea;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#ec4899;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f97316;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="swordGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#a0a0a0;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background Circle -->
+  <circle cx="60" cy="60" r="55" fill="url(#logoGradient)" filter="url(#glow)"/>
+  
+  <!-- Inner Circle -->
+  <circle cx="60" cy="60" r="45" fill="rgba(0,0,0,0.3)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+  
+  <!-- Arena Symbol - Crossed Swords -->
+  <g transform="translate(60,60)">
+    <!-- First Sword -->
+    <g transform="rotate(-45)">
+      <rect x="-2" y="-25" width="4" height="35" fill="url(#swordGradient)"/>
+      <rect x="-6" y="-28" width="12" height="4" fill="url(#swordGradient)" rx="2"/>
+      <circle cx="0" cy="-30" r="3" fill="#f59e0b"/>
+    </g>
+    
+    <!-- Second Sword -->
+    <g transform="rotate(45)">
+      <rect x="-2" y="-25" width="4" height="35" fill="url(#swordGradient)"/>
+      <rect x="-6" y="-28" width="12" height="4" fill="url(#swordGradient)" rx="2"/>
+      <circle cx="0" cy="-30" r="3" fill="#f59e0b"/>
+    </g>
+    
+    <!-- Center Nexus Symbol -->
+    <circle cx="0" cy="0" r="8" fill="rgba(0,0,0,0.5)" stroke="url(#logoGradient)" stroke-width="2"/>
+    <circle cx="0" cy="0" r="4" fill="url(#logoGradient)"/>
+    
+    <!-- Energy Lines -->
+    <g opacity="0.7">
+      <line x1="-15" y1="0" x2="-25" y2="0" stroke="url(#logoGradient)" stroke-width="2" stroke-linecap="round"/>
+      <line x1="15" y1="0" x2="25" y2="0" stroke="url(#logoGradient)" stroke-width="2" stroke-linecap="round"/>
+      <line x1="0" y1="-15" x2="0" y2="-25" stroke="url(#logoGradient)" stroke-width="2" stroke-linecap="round"/>
+      <line x1="0" y1="15" x2="0" y2="25" stroke="url(#logoGradient)" stroke-width="2" stroke-linecap="round"/>
+    </g>
+  </g>
+  
+  <!-- Anime-style elements -->
+  <g opacity="0.6">
+    <!-- Top decoration -->
+    <path d="M30 20 Q60 10 90 20" stroke="url(#logoGradient)" stroke-width="1.5" fill="none"/>
+    <!-- Bottom decoration -->
+    <path d="M30 100 Q60 110 90 100" stroke="url(#logoGradient)" stroke-width="1.5" fill="none"/>
+  </g>
+  
+  <!-- Sparkle effects -->
+  <g opacity="0.8">
+    <circle cx="25" cy="35" r="1.5" fill="#ffffff">
+      <animate attributeName="opacity" values="0.8;1;0.8" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="95" cy="85" r="1" fill="#ffffff">
+      <animate attributeName="opacity" values="1;0.5;1" dur="1.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="85" cy="25" r="1.2" fill="#ffffff">
+      <animate attributeName="opacity" values="0.5;1;0.5" dur="2.5s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+</svg>
