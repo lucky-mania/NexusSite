@@ -225,9 +225,11 @@ function handleContactClick(buttonType, element) {
             showNotification('WhatsApp', 'Redirecionando para o WhatsApp...');
             break;
         case 'location-btn':
+            event.preventDefault(); // Prevent default link behavior
             showLocationInfo();
             break;
         case 'vip-btn':
+            event.preventDefault(); // Prevent default link behavior
             showVipInfo();
             break;
         case 'instagram-btn':
@@ -433,17 +435,45 @@ function showNotification(title, message) {
 }
 
 /**
- * Show location info
+ * Store location configuration - Easy to change
+ */
+const STORE_LOCATION = {
+    address: 'R. José Gomes Costa, 31 - Centro, Esperantina - PI, 64180-000',
+    googleMapsUrl: 'https://maps.app.goo.gl/XozjfGpknZfjgnV89' // Backup direct link
+};
+
+/**
+ * Show location info and redirect to Google Maps
  */
 function showLocationInfo() {
-    showNotification('Loja Física', 'Em breve! Nossa loja física estará disponível para visitação.');
+    // Create Google Maps search URL with the new address
+    const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(STORE_LOCATION.address)}`;
+    
+    // Show notification
+    showNotification('Loja Física', 'Redirecionando para o Google Maps...');
+    
+    // Open Google Maps in new tab after a short delay
+    setTimeout(() => {
+        window.open(mapsUrl, '_blank');
+    }, 1000);
 }
 
 /**
- * Show VIP info
+ * VIP Group configuration - Easy to change
+ */
+const VIP_GROUP_URL = 'https://chat.whatsapp.com/CGlKZOwSh6Z5weHhMxqKz6?mode=ems_share_t';
+
+/**
+ * Show VIP info and redirect to WhatsApp Group
  */
 function showVipInfo() {
-    showNotification('Grupo VIP', 'Entre no nosso grupo VIP para ofertas exclusivas e lançamentos em primeira mão!');
+    // Show notification
+    showNotification('Grupo VIP', 'Redirecionando para o grupo VIP do WhatsApp...');
+    
+    // Open WhatsApp group in new tab after a short delay
+    setTimeout(() => {
+        window.open(VIP_GROUP_URL, '_blank');
+    }, 1000);
 }
 
 /**
